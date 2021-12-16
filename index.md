@@ -20,8 +20,8 @@ Furthermore, other applications for this project are:
 
 ## Methodology:
 The idea is to use a combination of Convolutional Neural Networks (CNN) and Recurrent Neural
-Networks (RNN) for video classification. The WLASL dataset holds both RGB video and body key
-point data for over 2000 common words, that can be exploited by deep learning algorithms to
+Networks (RNN) for video classification. The LSA64 dataset holds both RGB raw video and pre-processed 
+video data for over 64 common words, that can be exploited by deep learning algorithms to
 learn to classify various hand gestures. CNNs are widely used to recognize and classify images
 and are particularly successful at capturing spatial dependencies in an image. On the other hand,
 RNNs are adept at learning from sequential and temporal data (e.g., Key points in videos).
@@ -32,7 +32,7 @@ image features to the RNN, which in turn is expected to make more precise predic
 compared to a standalone RNN model.
 The following steps are proposed to train and test the model:
 - Downloading and preprocessing the dataset (Downloading raw videos and extracting
-video samples, body key points, etc.).
+video samples, RGB segmented frames, etc.).
 - Splitting dataset into training and testing data
 - Training CNN part of the architecture using TensorFlow
 - Store predicted results of the pooling layer of the trained CNN for the training data.
@@ -40,7 +40,7 @@ video samples, body key points, etc.).
 - Testing the architecture using the pooling layer predictions of the trained CNN as inputs
 for the RNN.
 
-## MOTIVATION FOR INCEPTION NETWORK 
+## Motivation for Inception Network 
 
 In general, to extract and store spatial information from an image or video, 2D convolution networks are used. The most common architectures used are ResNet, VGG16 and AlexNet. In these network architectures, only a certain type of filter is used between two layers. 
 ![Image](./src/fig1.png)
@@ -57,13 +57,9 @@ It can be observed that with the introduction of the bottle neck layer, the comp
 The input feature of the algorithm is of the dimensions 299x299x3.
 
 
-The following is the model of the inception V3 algorithm:
-## Resources used:
-- Dataset: [LSA64 - A Dataset for Argentinian Sign Language](https://facundoq.github.io/datasets/lsa64/)
-- [TensorFlow](https://www.tensorflow.org/tutorials/images/cnn)
-- [Nvidia CUDA 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal)
 
-## Code Snippet
+## GRU Model Creation
+The GRU model is imported from '''tf-learn''' to learn from temporal features as follows:
 ```bash
 def get_network_deep(frames, input_size, num_classes):
     """Create a deep GRU"""
@@ -78,38 +74,7 @@ def get_network_deep(frames, input_size, num_classes):
 
 ```
 
-You can use the [editor on GitHub](https://github.com/Gokulsrinivas98/CSE539-ML-Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Gokulsrinivas98/CSE539-ML-Project/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Resources used:
+- Dataset: [LSA64 - A Dataset for Argentinian Sign Language](https://facundoq.github.io/datasets/lsa64/)
+- [TensorFlow](https://www.tensorflow.org/tutorials/images/cnn)
+- [Nvidia CUDA 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal)
