@@ -46,16 +46,16 @@ In general, to extract and store spatial information from an image or video, 2D 
 ![Image](./src/fig1.png)
 
 To avoid this restriction of using just one type of filter or layer between the previous and the next layer, the inception v3 model has been adapted. In the inception network, various types of filters and layers are used between two layers in parallel to combined channel stacked output layers of same size as shown in the figure below: 
-![Image2](./src/fig2.png)
+![Image2](./src/fig2.jpeg)
 
 Introducing multiple layers increases the computational complexity of the algorithm. In order to tackle this issue, we introduce bottleneck layers. 
-![Image3](./src/fig4.png)
+![Image3](./src/fig4.PNG)
 
 It can be observed that with the introduction of the bottle neck layer, the computation cost is about 1/10th of the initial value. Bottleneck do compress the data into much smaller dimensions, but when they are used in the required locations, they can lessen the computational cost without lowering the performance of the algorithm. 
-![Image4](./src/fig5.png)
+![Image4](./src/fig5.jpeg)
 
 The input feature of the algorithm is of the dimensions 299x299x3.
-![Image5](./src/fig5.png)
+
 
 The following is the model of the inception V3 algorithm:
 ## Resources used:
