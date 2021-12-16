@@ -5,6 +5,7 @@
 
 ## Requirements
 * Install [opencv](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html).
+
   Note: **pip install opencv-python** does not have video capabilities. So I recommend to build it from source as described above.
 * Install tensorflow:
   ```shell
@@ -14,7 +15,9 @@
   ```shell
   pip install tflearn
   ```
-* Instal CUDA
+* Instal [CUDA](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal) [Optional]
+
+Note: Only do this if using Nvidia GPU. Install the CUDA package that is supported by tensorflow-2 and the Nvidia GPU's driver. This project was performed with `CUDA-Toolkit-11-2` and `Nvidia-driver-460.91.03`. 
 
 ## Training and Testing
 
@@ -146,7 +149,7 @@ For more information about the above command refer [here](https://codelabs.devel
 
 - Each Video represented by a sequence of 2048 dimensional vectors (output of last Pool Layer) one for each frame
 
-    **On Training Data**
+**On Training Data**
 
     ```shell
     python3 predict_spatial.py retrained_graph.pb train_frames \
@@ -156,7 +159,7 @@ For more information about the above command refer [here](https://codelabs.devel
 
     This will create a file `predicted-frames-GlobalPool-train.pkl` that will be used by RNN.
 
-    **On Test Data**
+**On Test Data**
 
     ```shell
     python3 predict_spatial.py retrained_graph.pb train_frames \
