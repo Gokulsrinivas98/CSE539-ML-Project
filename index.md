@@ -59,7 +59,7 @@ The input feature of the algorithm is of the dimensions 299x299x3.
 
 
 ## GRU Model Creation
-The GRU model is imported from '''tf-learn''' to learn from temporal features as follows:
+The GRU model is imported from `tf-learn` to learn from temporal features as follows:
 ```bash
 def get_network_deep(frames, input_size, num_classes):
     """Create a deep GRU"""
