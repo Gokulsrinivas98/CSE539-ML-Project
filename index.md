@@ -26,7 +26,6 @@ learn to classify various hand gestures. CNNs are widely used to recognize and c
 and are particularly successful at capturing spatial dependencies in an image. On the other hand,
 RNNs are adept at learning from sequential and temporal data (e.g., Key points in videos).
 
-
 The advantages of both these artificial neural networks can be achieved by using the pooling
 layer output of CNN as input to the RNN while training. This sequentially passes the convoluted
 image features to the RNN, which in turn is expected to make more precise predictions as
@@ -41,12 +40,43 @@ video samples, body key points, etc.).
 - Testing the architecture using the pooling layer predictions of the trained CNN as inputs
 for the RNN.
 
-## Resources used:
-- Dataset: Word-Level American Sign Language (WLASL) dataset
-- TensorFlow: https://www.tensorflow.org/tutorials/images/cnn
+## MOTIVATION FOR INCEPTION NETWORK 
 
-## Demo
-[ ]
+In general, to extract and store spatial information from an image or video, 2D convolution networks are used. The most common architectures used are ResNet, VGG16 and AlexNet. In these network architectures, only a certain type of filter is used between two layers. 
+![Image](src)
+
+To avoid this restriction of using just one type of filter or layer between the previous and the next layer, the inception v3 model has been adapted. In the inception network, various types of filters and layers are used between two layers in parallel to combined channel stacked output layers of same size as shown in the figure below: 
+![Image2](src)
+
+Introducing multiple layers increases the computational complexity of the algorithm. In order to tackle this issue, we introduce bottleneck layers. 
+![Image3](src)
+
+It can be observed that with the introduction of the bottle neck layer, the computation cost is about 1/10th of the initial value. Bottleneck do compress the data into much smaller dimensions, but when they are used in the required locations, they can lessen the computational cost without lowering the performance of the algorithm. 
+![Image4](src)
+
+The input feature of the algorithm is of the dimensions 299x299x3.
+![Image5](src)
+
+The following is the model of the inception V3 algorithm:
+## Resources used:
+- Dataset: [LSA64 - A Dataset for Argentinian Sign Language](https://facundoq.github.io/datasets/lsa64/)
+- [TensorFlow](https://www.tensorflow.org/tutorials/images/cnn)
+- [Nvidia CUDA 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal)
+
+## Code Snippet
+```
+def get_network_deep(frames, input_size, num_classes):
+    """Create a deeper LSTM"""
+    net = tflearn.input_data(shape=[None, frames, input_size])
+    net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
+    net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
+    net = tflearn.gru(net, 64, dropout=0.2)
+    net = tflearn.fully_connected(net, num_classes, activation='softmax')
+    net = tflearn.regression(net, optimizer='adam',
+                             loss='categorical_crossentropy', name="output1")
+    return net
+
+```
 
 You can use the [editor on GitHub](https://github.com/Gokulsrinivas98/CSE539-ML-Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
