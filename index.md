@@ -6,11 +6,11 @@
 - Varatharajan, Akaash
 - Venkataramanan, Rohith
 
-## Function of our tool:
+## Function of our tool
 Our software aims to translate sign language into English text that would enable easy and efficient communication for aurally impaired people. Communication through sign language will be translated to English in real-time by taking a video stream of sign language as input and classifying
 it into textual output using word-level sign recognition. 
 
-## Why we need it and who will benefit from it:
+## Why we need it and who will benefit from it
 The American Sign Language is one of the most used languages in the United States and is also the fourth- most studied second language in American universities. There are 500,000 ASL users in the US and Canada. In addition to ASL being primarily used by deaf and mute people, ASL is also used by children, siblings, and relatives of deaf people, hearing adults who are becoming
 deaf, and a growing population of hearing adults that learn ASL as a second or third language. In addition, ASL improves the quality of family communication for hearing people with deaf and mute relatives.
 This Project aims to help reduce the gap between the ASL users and non-ASL users, by helping the non-ASL users learn ASL by practicing it at their own pace. Being an educational tool, everyone that wants to learn ASL would benefit from it.
@@ -18,7 +18,7 @@ Furthermore, other applications for this project are:
 - Caption generation for Zoom video calls and YouTube sign language content
 - Google search using sign language and translations
 
-## Methodology:
+## Methodology
 The idea is to use a combination of Convolutional Neural Networks (CNN) and Recurrent Neural
 Networks (RNN) for video classification. The LSA64 dataset holds both RGB raw video and pre-processed 
 video data for over 64 common words, that can be exploited by deep learning algorithms to
@@ -74,7 +74,7 @@ def get_network_deep(frames, input_size, num_classes):
 
 ```
 
-## Resources used:
+## Resources used
 - Dataset: [LSA64 - A Dataset for Argentinian Sign Language](https://facundoq.github.io/datasets/lsa64/)
 - [TensorFlow](https://www.tensorflow.org/tutorials/images/cnn)
 - [Nvidia CUDA 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal)
