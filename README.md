@@ -15,7 +15,7 @@
   ```shell
   pip install tflearn
   ```
-* Instal [CUDA](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal) [Optional]
+* Instal [CUDA](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal) (Optional)
 
 Note: Only do this if using Nvidia GPU. Install the CUDA package that is supported by tensorflow-2 and the Nvidia GPU's driver. This project was performed with `CUDA-Toolkit-11-2` and `Nvidia-driver-460.91.03`. 
 
