@@ -64,9 +64,9 @@ The following is the model of the inception V3 algorithm:
 - [Nvidia CUDA 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal)
 
 ## Code Snippet
-```
+```bash
 def get_network_deep(frames, input_size, num_classes):
-    """Create a deeper GRU"""
+    """Create a deep GRU"""
     net = tflearn.input_data(shape=[None, frames, input_size])
     net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
     net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
