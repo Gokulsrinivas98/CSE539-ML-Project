@@ -52,7 +52,7 @@ Introducing multiple layers increases the computational complexity of the algori
 ![Image3](./src/fig4.png)
 
 It can be observed that with the introduction of the bottle neck layer, the computation cost is about 1/10th of the initial value. Bottleneck do compress the data into much smaller dimensions, but when they are used in the required locations, they can lessen the computational cost without lowering the performance of the algorithm. 
-![Image4](./src/fig4.png)
+![Image4](./src/fig5.png)
 
 The input feature of the algorithm is of the dimensions 299x299x3.
 ![Image5](./src/fig5.png)
@@ -66,7 +66,7 @@ The following is the model of the inception V3 algorithm:
 ## Code Snippet
 ```
 def get_network_deep(frames, input_size, num_classes):
-    """Create a deeper LSTM"""
+    """Create a deeper GRU"""
     net = tflearn.input_data(shape=[None, frames, input_size])
     net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
     net = tflearn.gru(net, 64, dropout=0.2, return_seq=True)
