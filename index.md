@@ -43,7 +43,7 @@ for the RNN.
 ## MOTIVATION FOR INCEPTION NETWORK 
 
 In general, to extract and store spatial information from an image or video, 2D convolution networks are used. The most common architectures used are ResNet, VGG16 and AlexNet. In these network architectures, only a certain type of filter is used between two layers. 
-![Image](src)
+![Image](CSE539-ML-Project/src/fig1.png)
 
 To avoid this restriction of using just one type of filter or layer between the previous and the next layer, the inception v3 model has been adapted. In the inception network, various types of filters and layers are used between two layers in parallel to combined channel stacked output layers of same size as shown in the figure below: 
 ![Image2](src)
