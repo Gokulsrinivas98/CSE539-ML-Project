@@ -1,4 +1,4 @@
-# CSE539-ML-Project
+# CSE539-Sign language interpretation using Deep Learning
 
 ## DataSet Used
 * [Argentinian Sign Language Gestures](https://facundoq.github.io/datasets/lsa64/). The dataset is made available strictly for academic purposes by the owners. Please read the license terms carefully and cite their paper if you plan to use the dataset.
